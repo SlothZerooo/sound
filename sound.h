@@ -1,3 +1,4 @@
+//#define DEBUG       //conditional compiling
 #define SAMPLERATE 16000
 
 //struct / union definition

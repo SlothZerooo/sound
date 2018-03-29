@@ -1,4 +1,5 @@
 #include "sound.h"
+#include "screen.h"
 #include <stdio.h>
 #include <math.h>
 // function definition of printfID
@@ -30,7 +31,11 @@ void dispWAVData(char filename[]){
 			sum += samples[j+i*200] * samples[j+i*200];
 		}
 		rms[i] = sqrt(sum/200);
-		printf("rms[%d]: %10.4f\n", i, rms[i]);
+#ifdef DEBUG
+		printf("rms[%d]: %10.4f, dB = %10.4f\n", i, rms[i], 20*log10(rms[i]));
+#else
+		dispBar(i, 20*log10(rms[i]));     //display dB value a bar
+#endif
 	}
 }
 // function definition of dispWAVHeader()
@@ -46,6 +51,7 @@ void dispWAVHeader(char filename[]){
 	}
 	fread(&mh, sizeof(mh), 1, fp);
 	fclose(fp);
+	clearScreen();
 	printf("Chunk ID: ");
 	printID(mh.chunkID);
 	printf("Chunk size: %d\n", mh.chunkSize);
