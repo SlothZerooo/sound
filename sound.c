@@ -26,6 +26,7 @@ void dispWAVData(char filename[]){
 	fread(&mh, sizeof(mh), 1, fp);
 	fread(samples, sizeof(short), SAMPLERATE,fp);
 	fclose(fp);
+	clearScreen();
 	for(i=0; i<80; i++){
 		for(j=0, sum=0.0; j<SAMPLERATE/80; ++j){
 			sum += samples[j+i*200] * samples[j+i*200];
@@ -51,7 +52,6 @@ void dispWAVHeader(char filename[]){
 	}
 	fread(&mh, sizeof(mh), 1, fp);
 	fclose(fp);
-	clearScreen();
 	printf("Chunk ID: ");
 	printID(mh.chunkID);
 	printf("Chunk size: %d\n", mh.chunkSize);

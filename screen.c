@@ -28,6 +28,13 @@ void dispBar(int col, double dB){
 	int i;
 	for(i=0; i<dB/3; i++){
 		gotoxy(30-i, col+1);
+#ifndef UNICODE
 		printf("%c", '*');
+#else
+		if(i<50/3) setColor(WHITE);
+		else if(i<70/3) setColor(YELLOW);
+		else(setColor(RED));
+		printf("%s", BAR);
+#endif
 	}
 }
