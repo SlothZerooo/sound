@@ -1,3 +1,4 @@
+#include "comm.h"
 #include "sound.h"
 #include "screen.h"
 #include <stdio.h>
@@ -13,7 +14,7 @@ void printID(char id[]){
 
 // function definition of dispWAVData()
 void dispWAVData(char filename[]){
-	int i,j;    //loop counters
+ 	int i,j;    //loop counters
 	FILE *fp;    // file header to open file test.wav
 	double rms[80], sum;   //80 pieces of RMS value
 	short samples[SAMPLERATE];   //totally 16000 samples in 1 sec
@@ -38,6 +39,9 @@ void dispWAVData(char filename[]){
 		dispBar(i, 20*log10(rms[i]));     //display dB value a bar
 #endif
 	}
+#ifdef COMM
+	sendToServer(rms);
+#endif
 }
 // function definition of dispWAVHeader()
 void dispWAVHeader(char filename[]){
