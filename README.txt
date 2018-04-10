@@ -19,17 +19,39 @@ List Contents
   Software: PUTTY
   Hardware: USB Sound Card, RJ45 Cable, Raspberry Pi 3, microphone 
 2.Installation instructions:
+1.	First use command "ls /usr/include/curl" to identify that /usr/include/curl/ folder exists or not.
+
+2.	If the folder doesn.t exist. Run "sudo apt-get update" to update the application list.
+
+3.	Run "sudo apt-get install libcurl3" to install the libcurl3.
+
+4.	Run "sudo apt-get install libcurl4-openssl-dev" to install the development API of libcurl4.
   Use www.github.com to upload files
 3.Operating instructions:
-
+  Windows 10 64-bit Operating System, x64-based processer
+  Connecting putty to PC
+  Download files to raspberry Pi 3
+  Run the program in raspberry and you need to make some voice to mircorephone
+  and you can see the change about it
+  Finally, use "ctrl + c" to shut down the program  
 4.File manifest:
-comm.c  comm.o  main.o    project.tar  README.txt  screen.h  sound.a  sound.h  testcurl
-comm.h  main.c  makefile  README.md    screen.c    screen.o  sound.c  sound.o  test.wav
+comm.c  project.tar  README.txt  screen.h  sound.h  testcurl
+comm.h  main.c  makefile  README.md  screen.c  sound.c
 
 5.Copyright and license:
-Reference to Wikipedia
+<one line to give the program's name and a brief idea of what it does.>
+Copyright (C) <2018>  <Hu Jipan>
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
 6.Contact information:  
-ALL
 Hu Jipan
 Dept. of Information technolog
 Vaasa University of Applied Sciences
