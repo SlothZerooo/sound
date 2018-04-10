@@ -15,12 +15,21 @@ List Contents
 5.Copyright and license
 6.Contact information
 
-1.
-2.
-......
+1.Configuration instructions:  
+  Software: PUTTY
+  Hardware: USB Sound Card, RJ45 Cable, Raspberry Pi 3, microphone 
+2.Installation instructions:
+  Use www.github.com to upload files
+3.Operating instructions:
 
-6. Contact information
+4.File manifest:
+comm.c  comm.o  main.o    project.tar  README.txt  screen.h  sound.a  sound.h  testcurl
+comm.h  main.c  makefile  README.md    screen.c    screen.o  sound.c  sound.o  test.wav
 
+5.Copyright and license:
+Reference to Wikipedia
+6.Contact information:  
+ALL
 Hu Jipan
 Dept. of Information technolog
 Vaasa University of Applied Sciences
