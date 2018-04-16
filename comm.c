@@ -3,8 +3,9 @@
 #include <curl/curl.h>
 #include <math.h>
 
-//function definition, this function takes in 80-pieces of rms value, each
-//is calculated by 200 samples.
+//function definition, this function takes in 80-pieces of rms value, each is calculated by 200 samples.
+// The function could use these values to re-calculate 8-points of first decibel values.
+// To do so, we need to a sum, and then divided by 2000 then square-root the result
 void sendToServer(double rms[]){
 	double fast[8], sum;
 	int i, j;  //loop counters
@@ -12,12 +13,13 @@ void sendToServer(double rms[]){
 	CURLcode res;
 	char post[1000];
 	
-	for(i=0; i<8; i++){     //8times
-		for(j=0, sum=0; j<10; j++){    //10times
+	for(i=0; i<8; i++){     //outer loop repeas 8 times for 8-pieces of result
+		for(j=0, sum=0; j<10; j++){    //inner loop repeats 10 times to accumulate
 			sum +=  (rms[j+i*10]*rms[j+i*10])*200;
 		}
 		fast[i] = sqrt(sum/2000);
-	}
+	}		// end of for(i)
+	// prepare post data string
 	sprintf(post, "data=%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f;%.2f",
 		fast[0], fast[1], fast[2], fast[3], fast[4], fast[5], fast[6], fast[7]);
 	curl_global_init(CURL_GLOBAL_ALL);
